@@ -33,7 +33,6 @@ public class Results extends Main{
         return resultsFormat[formatNumber];
     }
     
-
     static String quizResultsAnswers(int questionNumber) {
         String[] results = new String[answerSheet.questionCounter];
         for (int i = 0; i < answerSheet.questionCounter; i++) {
@@ -71,8 +70,9 @@ public class Results extends Main{
     static void printResultsFile() {
             PrintWriter resultsWriter;
         try {
-            String fullPathOnly = fileName().getAbsolutePath().replace(fileName().getName(), "");
             String fileNameOnly = fileName().getName();
+            String fullPathOnly = fileName().getAbsolutePath().replace(fileNameOnly, "");
+            
             resultsWriter = new PrintWriter(fileName().getAbsolutePath());
             resultsWriter.println(quizResultsFormat(0));
             for (int questionNumber = 0; questionNumber < answerSheet.questionCounter; questionNumber++) {
@@ -80,6 +80,7 @@ public class Results extends Main{
             }
             resultsWriter.println(quizResultsFormat(1));
             resultsWriter.close();
+            
             System.out.println("");
             Message.filePrintSuccess();
             Message.filePath();

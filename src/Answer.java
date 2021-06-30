@@ -25,17 +25,21 @@ public class Answer {
         : correctAnswers.get(questionCounter).equalsIgnoreCase(userAnswers.get(questionCounter));
         return answerVerifier;
    }
+   
+   private void scoreAnswer(boolean caseSensitive) {
+       boolean answerVerifier = verifyAnswer(caseSensitive);
+       score = answerVerifier ? score+1 : score+0;
+       wrongScore = answerVerifier ? wrongScore+0 : wrongScore+1;
+       ticks.add(questionCounter, answerVerifier ? "✓" : "X");
+   }
     
-    public void checkAnswer(String correctAnswer,boolean caseSensitive) {
+    public void answer(String correctAnswer,String userAnswer,boolean caseSensitive) {
         if (correctAnswers == null && userAnswers == null && ticks == null) {
             System.out.println("The startQuiz() function hasn't been called.");
         } else {
-            userAnswers.add(questionCounter, Main.input.nextLine());
+            userAnswers.add(questionCounter, userAnswer);
             correctAnswers.add(questionCounter, correctAnswer);
-            boolean answerVerifier = verifyAnswer(caseSensitive);
-            score = answerVerifier ? score+1 : score+0;
-            wrongScore = answerVerifier ? wrongScore+0 : wrongScore+1;
-            ticks.add(questionCounter, answerVerifier ? "✓" : "X");
+            scoreAnswer(caseSensitive);
             questionCounter++;
         }
     }

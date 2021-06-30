@@ -23,9 +23,6 @@ can add as many questions as you want effortlessly.
 How to run the program:
 
 There are 2 ways:
-1. Use Apache NetBeans or Netbeans.
-2. Run using a terminal or the command prompt (cmd):
-
 
 1. Use Apache NetBeans or Netbeans:
 >Go to the top right corner and go to File>Open project

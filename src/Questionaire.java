@@ -11,7 +11,7 @@ public class Questionaire extends Main {
         System.out.println("Question " + (answerSheet.questionCounter+1) + ":");
         System.out.println("Your question here");
         System.out.print("Type your answer:");
-        answerSheet.answer("Correct answer here", Main.input.nextLine(), true); // put true or false for case-sensitive answers
+        answerSheet.answer("Correct answer here", true, Main.input.nextLine()); // put true or false for case-sensitive answers
         
         
         System.out.println("");       
@@ -24,7 +24,7 @@ public class Questionaire extends Main {
         System.out.println("Question " + (answerSheet.questionCounter+1) + ":");
         System.out.println("What is 1 + 1?");
         System.out.print("Type your answer:");
-        answerSheet.answer("2", Main.input.nextLine(), true); // put true or false for case-sensitive answers
+        answerSheet.answer("2", true, Main.input.nextLine()); // put true or false for case-sensitive answers
         
         
         System.out.println("");
@@ -37,7 +37,7 @@ public class Questionaire extends Main {
         System.out.println("C: 2");
         System.out.println("D: None of the Above");               
         System.out.print("Type the correct letter:");       
-        answerSheet.answer("C", Main.input.nextLine(), false); // put true or false for case-sensitive answers
+        answerSheet.answer("C", false, Main.input.nextLine()); // put true or false for case-sensitive answers
         
         
         System.out.println("");                    
@@ -46,7 +46,7 @@ public class Questionaire extends Main {
         System.out.println("Question " + (answerSheet.questionCounter+1) + ":");
         System.out.println("What is Obama's last name?");
         System.out.print("Type the correct answer:");
-        answerSheet.answer("Obama", Main.input.nextLine(), true); // put true or false for case-sensitive answers
+        answerSheet.answer("Obama", true, Main.input.nextLine()); // put true or false for case-sensitive answers
         
         
         System.out.println("");        
@@ -56,7 +56,7 @@ public class Questionaire extends Main {
         System.out.println("What is the first name of the creator of this");
         System.out.println("program?");
         System.out.print("Type the correct answer:");
-        answerSheet.answer("James", Main.input.nextLine(), true); // put true or false for case-sensitive answers
+        answerSheet.answer("James", true, Main.input.nextLine()); // put true or false for case-sensitive answers
         
         
         System.out.println("");

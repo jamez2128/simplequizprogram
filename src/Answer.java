@@ -9,8 +9,8 @@ public class Answer {
     ArrayList<String> userAnswers;
     ArrayList<String> correctAnswers;
     ArrayList<String> ticks;
-    
-    public void startQuiz() {
+
+    private void startQuiz() {
         correctAnswers = new ArrayList<>();
         userAnswers = new ArrayList<>();
         ticks = new ArrayList<>();
@@ -19,28 +19,37 @@ public class Answer {
         questionCounter = 0;
     }
         
-   private boolean verifyAnswer(boolean caseSensitive) {
-       boolean answerVerifier = caseSensitive
+    private boolean verifyAnswer(boolean caseSensitive) {
+        boolean answerVerifier = caseSensitive
         ? correctAnswers.get(questionCounter).equals(userAnswers.get(questionCounter))
         : correctAnswers.get(questionCounter).equalsIgnoreCase(userAnswers.get(questionCounter));
         return answerVerifier;
    }
    
-   private void scoreAnswer(boolean caseSensitive) {
-       boolean answerVerifier = verifyAnswer(caseSensitive);
-       score = answerVerifier ? score+1 : score+0;
-       wrongScore = answerVerifier ? wrongScore+0 : wrongScore+1;
-       ticks.add(questionCounter, answerVerifier ? "✓" : "X");
+    private void scoreAnswer(boolean caseSensitive) {
+        boolean answerVerifier = verifyAnswer(caseSensitive);
+        score = answerVerifier ? score+1 : score+0;
+        wrongScore = answerVerifier ? wrongScore+0 : wrongScore+1;
+        ticks.add(questionCounter, answerVerifier ? "✓" : "X");
+   }
+   
+    private void setAnswers(String correctAnswer, String userAnswer) {
+        userAnswers.add(questionCounter, userAnswer);
+        correctAnswers.add(questionCounter, correctAnswer);
+   }
+   
+    private void cycleQuestion(String correctAnswer, boolean caseSensitive, String userAnswer) {
+        setAnswers(correctAnswer, userAnswer);
+        scoreAnswer(caseSensitive);
+        questionCounter++;
    }
     
-    public void answer(String correctAnswer,String userAnswer,boolean caseSensitive) {
-        if (correctAnswers == null && userAnswers == null && ticks == null) {
-            System.out.println("The startQuiz() function hasn't been called.");
+    public void answer(String correctAnswer,boolean caseSensitive, String userAnswer) {
+       if (correctAnswers == null && userAnswers == null && ticks == null) {
+           startQuiz();
+           cycleQuestion(correctAnswer, caseSensitive, userAnswer);
         } else {
-            userAnswers.add(questionCounter, userAnswer);
-            correctAnswers.add(questionCounter, correctAnswer);
-            scoreAnswer(caseSensitive);
-            questionCounter++;
+           cycleQuestion(correctAnswer, caseSensitive, userAnswer);
         }
     }
 }

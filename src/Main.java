@@ -29,7 +29,6 @@ public class Main {
                 case "s":
                 case "":
                     answerSheet = new Answer();
-                    answerSheet.startQuiz();
                     Message.skipLines(25);
                    
                     Questionaire.questions();

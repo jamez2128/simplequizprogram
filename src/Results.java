@@ -22,12 +22,13 @@ public class Results extends Main{
     
     static String quizResultsFormat(int formatNumber) {
         String[] resultsFormat = new String[2];
-        resultsFormat[0] = ("Quiz finished in\n"
-                          + quizFinishedTime + "\n"
-                          + "\n"
-                          + userName + "'s results:\n"
-                          + "Score: "+ answerSheet.score + "/" + answerSheet.questionCounter + "\n"
-                          + "(✓/X) Your Answers");
+        resultsFormat[0]
+                = ("Quiz finished in\n"
+                + quizFinishedTime + "\n"
+                + "\n"
+                + userName + "'s results:\n"
+                + "Score: "+ answerSheet.score + "/" + answerSheet.questionCounter + "\n"
+                + "(✓/X) Your Answers");
         
         resultsFormat[1] = ("✓: " + answerSheet.score+"/"+answerSheet.questionCounter + "\tX: " + answerSheet.wrongScore + "/" + answerSheet.questionCounter);
         return resultsFormat[formatNumber];

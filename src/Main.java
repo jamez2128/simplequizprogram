@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     
     static String userName;
-    public static void newUser() {
+    private static void newUser() {
         Message.welcome();
         Message.askUserName();
         userName = input.nextLine();
@@ -30,7 +30,7 @@ public class Main {
                 case "":
                     answerSheet = new Answer();
                     Message.skipLines(25);
-                   
+
                     Questionaire.questions();
                    
                     Message.skipLines(25);

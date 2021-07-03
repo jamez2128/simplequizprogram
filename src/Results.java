@@ -20,7 +20,7 @@ public class Results extends Main{
         quizFinishedTime = timeDate();
     }
     
-    public static String quizResultsFormat(int formatNumber) {
+    static String quizResultsFormat(int formatNumber) {
         String[] resultsFormat = new String[2];
         resultsFormat[0] = ("Quiz finished in\n"
                           + quizFinishedTime + "\n"

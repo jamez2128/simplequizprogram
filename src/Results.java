@@ -28,9 +28,10 @@ public class Results extends Main{
                 + "\n"
                 + userName + "'s results:\n"
                 + "Score: "+ answerSheet.score + "/" + answerSheet.questionCounter + "\n"
+                + "\n"
                 + "(✓/X) Your Answers");
         
-        resultsFormat[1] = ("✓: " + answerSheet.score+"/"+answerSheet.questionCounter + "\tX: " + answerSheet.wrongScore + "/" + answerSheet.questionCounter);
+        resultsFormat[1] = ("\n"+"✓: " + answerSheet.score+"/"+answerSheet.questionCounter + "\tX: " + answerSheet.wrongScore + "/" + answerSheet.questionCounter);
         return resultsFormat[formatNumber];
     }
     

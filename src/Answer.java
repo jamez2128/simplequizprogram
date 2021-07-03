@@ -21,8 +21,8 @@ public class Answer {
         
     private boolean verifyAnswer(boolean caseSensitive) {
         boolean answerVerifier = caseSensitive
-        ? correctAnswers.get(questionCounter).equals(userAnswers.get(questionCounter))
-        : correctAnswers.get(questionCounter).equalsIgnoreCase(userAnswers.get(questionCounter));
+                ? correctAnswers.get(questionCounter).equals(userAnswers.get(questionCounter))
+                : correctAnswers.get(questionCounter).equalsIgnoreCase(userAnswers.get(questionCounter));
         return answerVerifier;
    }
    

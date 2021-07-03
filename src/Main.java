@@ -30,7 +30,7 @@ public class Main {
                 case "":
                     answerSheet = new Answer();
                     Message.skipLines(25);
-
+                    Results.quizStartedTime();
                     Questionaire.questions();
                    
                     Message.skipLines(25);
@@ -38,7 +38,7 @@ public class Main {
                     Results.quizFinishedTime();
                     Message.reAttemptHelp = true;
                     Message.quizFinished();
-                    Main.input.nextLine();     
+                    Main.input.nextLine();
                     Results.printResults();
                     System.out.println("");
                     Message.filePrintAttempt();

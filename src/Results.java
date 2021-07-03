@@ -15,40 +15,43 @@ public class Results extends Main{
         return clocKFormat.format(presentTime)+ " " + dayOnWeekFormat.format(presentTime) + " " +dateFormat.format(presentTime);
     }
     
-    private static String quizFinishedTime;
-    static void quizFinishedTime() {
-        quizFinishedTime = timeDate();
+    private static String quizStartTime;
+    static void quizStartedTime() {
+        quizStartTime = timeDate();
     }
     
-    static String quizResultsFormat(int formatNumber) {
-        String[] resultsFormat = new String[2];
-        resultsFormat[0]
-                = ("Quiz finished in\n"
-                + quizFinishedTime + "\n"
+    private static String quizEndTime;
+    static void quizFinishedTime() {
+        quizEndTime = timeDate();
+    }
+    
+    static String quizResultsFormat() {
+        String resultsFormat;
+        resultsFormat
+                = ("Name: " + userName + "\n"
+                + "Date Started : " + quizStartTime + "\n"
+                + "Date Finished: " + quizEndTime + "\n"
                 + "\n"
-                + userName + "'s results:\n"
-                + "Score: "+ answerSheet.score + "/" + answerSheet.questionCounter + "\n"
+                + "Score: \n"
+                + "✓: " + answerSheet.score+"/"+answerSheet.questionCounter + "\tX: " + answerSheet.wrongScore + "/" + answerSheet.questionCounter + "\n"
                 + "\n"
-                + "(✓/X) Your Answers");
-        
-        resultsFormat[1] = ("\n"+"✓: " + answerSheet.score+"/"+answerSheet.questionCounter + "\tX: " + answerSheet.wrongScore + "/" + answerSheet.questionCounter);
-        return resultsFormat[formatNumber];
+                + "✓/X: Your Answers:");
+        return resultsFormat;
     }
     
     static String quizResultsAnswers(int questionNumber) {
         String[] results = new String[answerSheet.questionCounter];
         for (int i = 0; i < answerSheet.questionCounter; i++) {
-            results[questionNumber] = ("( "+answerSheet.ticks.get(questionNumber)+ " ) " + (questionNumber+1) + ". " + answerSheet.userAnswers.get(questionNumber));
+            results[questionNumber] = (" "+answerSheet.ticks.get(questionNumber)+ "   " + (questionNumber+1) + ". " + answerSheet.userAnswers.get(questionNumber));
         }
         return results[questionNumber];
     }
 
     static void printResults() {
-        System.out.println(quizResultsFormat(0));
+        System.out.println(quizResultsFormat());
         for (int questionNumber = 0; questionNumber < answerSheet.questionCounter; questionNumber++) {
             System.out.println(quizResultsAnswers(questionNumber));
         }
-        System.out.println(quizResultsFormat(1));
     }
     
     static File fileName() {
@@ -76,11 +79,10 @@ public class Results extends Main{
             String fullPathOnly = fileName().getAbsolutePath().replace(fileNameOnly, "");
             
             resultsWriter = new PrintWriter(fileName().getAbsolutePath());
-            resultsWriter.println(quizResultsFormat(0));
+            resultsWriter.println(quizResultsFormat());
             for (int questionNumber = 0; questionNumber < answerSheet.questionCounter; questionNumber++) {
                 resultsWriter.println(quizResultsAnswers(questionNumber));
             }
-            resultsWriter.println(quizResultsFormat(1));
             resultsWriter.close();
             
             System.out.println("");

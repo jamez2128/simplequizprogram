@@ -28,12 +28,10 @@ public class Results extends Main{
     static String quizResultsFormat() {
         String resultsFormat;
         resultsFormat
-                = ("Name: " + userName + "\n"
-                + "Date Started : " + quizStartTime + "\n"
-                + "Date Finished: " + quizEndTime + "\n"
-                + "\n"
-                + "Score: \n"
-                + "✓: " + answerSheet.score+"/"+answerSheet.questionCounter + "\tX: " + answerSheet.wrongScore + "/" + answerSheet.questionCounter + "\n"
+                = ("Name\t\t: " + userName + "\n"
+                + "Date Started\t: " + quizStartTime + "\n"
+                + "Date Finished\t: " + quizEndTime + "\n"
+                + "Score\t\t: "+ "✓: " + answerSheet.score+"/"+answerSheet.questionCounter + "  X: " + answerSheet.wrongScore + "/" + answerSheet.questionCounter + "\n"
                 + "\n"
                 + "✓/X: Your Answers:");
         return resultsFormat;

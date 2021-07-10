@@ -73,8 +73,9 @@ public class Results extends Main{
     static void printResultsFile() {
             PrintWriter resultsWriter;
         try {
+            String fullPath = fileName().getAbsolutePath();
             String fileNameOnly = fileName().getName();
-            String fullPathOnly = fileName().getAbsolutePath().replace(fileNameOnly, "");
+            String fullPathOnly = fullPath.replace(fileNameOnly, "");
             
             resultsWriter = new PrintWriter(fileName().getAbsolutePath());
             resultsWriter.println(quizResultsFormat());

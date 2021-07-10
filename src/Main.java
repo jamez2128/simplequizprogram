@@ -30,12 +30,12 @@ public class Main {
                 case "":
                     answerSheet = new Answer();
                     Message.skipLines(25);
-                    Results.quizStartedTime();
+                    Results.setQuizStartedTime();
                     Questionaire.questions();
                    
                     Message.skipLines(25);
  
-                    Results.quizFinishedTime();
+                    Results.setQuizFinishedTime();
                     Message.reAttemptHelp = true;
                     Message.quizFinished();
                     Main.input.nextLine();

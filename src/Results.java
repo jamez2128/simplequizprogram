@@ -16,12 +16,12 @@ public class Results extends Main{
     }
     
     private static String quizStartTime;
-    static void quizStartedTime() {
+    static void setQuizStartedTime() {
         quizStartTime = timeDate();
     }
     
     private static String quizEndTime;
-    static void quizFinishedTime() {
+    static void setQuizFinishedTime() {
         quizEndTime = timeDate();
     }
     

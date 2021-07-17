@@ -64,8 +64,19 @@ public class Message extends Main{
     
     public static void filePrintError() {
         System.out.println("Sorry something unusual happened.");
+    }
+    
+    public static void fileReadOnlyError() {
+        System.out.println("The file system is in Read-Only permission");
+        System.out.println("Make sure it is set to Read-Write.");
+    }
+    
+    public static void fileDirectoryError() {
         System.out.println("Directory may be moved, deleted or, modified.");
-        System.out.println("Your file failed to print.");
+    }
+    
+    public static void filePrintFailed() {
+        System.out.println("Your file didn't print successfully");
     }
     
     public static void printFileNegative() {

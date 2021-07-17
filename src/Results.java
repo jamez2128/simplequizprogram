@@ -93,6 +93,12 @@ public class Results extends Main{
             } catch (FileNotFoundException ex) {
                 System.out.println(ex);
                 Message.filePrintError();
+                if (!fileName().canWrite()) {
+                    Message.fileReadOnlyError();
+                } else {
+                    Message.filePrintFailed();
+                }
+                Message.filePrintError();
               }
     }
 }

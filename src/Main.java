@@ -30,8 +30,8 @@ public class Main {
                 case "":
                     answerSheet = new Answer();
                     Message.skipLines(25);
-                    Results.setQuizStartedTime();
                     Questionaire.questions();
+                    Results.setQuizStartedTime();
                    
                     Message.skipLines(25);
                     

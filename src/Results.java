@@ -37,18 +37,18 @@ public class Results extends Main{
         return resultsFormat;
     }
     
-    static String quizResultsAnswers(int questionNumber) {
-        String[] results = new String[answerSheet.questionCounter];
-        for (int i = 0; i < answerSheet.questionCounter; i++) {
+    static String[] results;
+    static void setQuizResultsAnswers() {
+        results = new String[answerSheet.questionCounter];
+        for (int questionNumber = 0; questionNumber < answerSheet.questionCounter; questionNumber++) {
             results[questionNumber] = (" "+answerSheet.ticks.get(questionNumber)+ "   " + (questionNumber+1) + ". " + answerSheet.userAnswers.get(questionNumber));
         }
-        return results[questionNumber];
     }
 
     static void printResults() {
         System.out.println(quizResultsFormat());
-        for (int questionNumber = 0; questionNumber < answerSheet.questionCounter; questionNumber++) {
-            System.out.println(quizResultsAnswers(questionNumber));
+        for (String answerNumber : results) {
+            System.out.println(answerNumber);
         }
     }
     
@@ -79,8 +79,8 @@ public class Results extends Main{
             
             resultsWriter = new PrintWriter(fileName().getAbsolutePath());
             resultsWriter.println(quizResultsFormat());
-            for (int questionNumber = 0; questionNumber < answerSheet.questionCounter; questionNumber++) {
-                resultsWriter.println(quizResultsAnswers(questionNumber));
+            for (String answerNumber : results) {
+                resultsWriter.println(answerNumber);
             }
             resultsWriter.close();
             

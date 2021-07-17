@@ -21,7 +21,7 @@ public class Main {
         
         input = new Scanner(System.in);
         boolean runMainMenu = true;
-        Main.newUser();
+        newUser();
         
         do {
             switch (input.nextLine().toLowerCase()) {
@@ -34,11 +34,12 @@ public class Main {
                     Questionaire.questions();
                    
                     Message.skipLines(25);
- 
+                    
+                    Results.setQuizResultsAnswers();
                     Results.setQuizFinishedTime();
                     Message.reAttemptHelp = true;
                     Message.quizFinished();
-                    Main.input.nextLine();
+                    input.nextLine();
                     Results.printResults();
                     System.out.println("");
                     Message.filePrintAttempt();
